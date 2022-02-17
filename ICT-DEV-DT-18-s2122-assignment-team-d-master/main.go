@@ -33,6 +33,7 @@ func main() {
 	r.Post("/login", handlers.DoLogin)
 
 	r.Get("/", handlers.HomeHandler)
+	r.Get("/home", handlers.HomeHandler)
 
 	r.Get("/studenten", handlers.StudentsHandler)
 	r.Get("/studenten/{id}", handlers.StudentHandler)
