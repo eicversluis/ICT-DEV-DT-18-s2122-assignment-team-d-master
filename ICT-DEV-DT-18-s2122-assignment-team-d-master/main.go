@@ -32,7 +32,7 @@ func main() {
 	r.Get("/logout", handlers.Logout)
 	r.Post("/login", handlers.DoLogin)
 
-	r.Get("/home", handlers.HomeHandler)
+	r.Get("/", handlers.HomeHandler)
 
 	r.Get("/studenten", handlers.StudentsHandler)
 	r.Get("/studenten/{id}", handlers.StudentHandler)
