@@ -1,0 +1,9 @@
+{{template "header.gohtml" .}}
+{{template "nav.gohtml" . }}
+<h2>Module toevoegen</h2>
+<form action="/modules/nieuw" method="post" >
+    <label for="namefield">Naam:</label>
+    <input id="namefield" type="text" name="name" placeholder="ModuleNaam">
+    <button type="submit">Toevoegen</button>
+</form>
+{{template "footer.gohtml" .}}

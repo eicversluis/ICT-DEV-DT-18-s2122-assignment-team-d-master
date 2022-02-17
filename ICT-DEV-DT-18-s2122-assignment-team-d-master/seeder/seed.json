@@ -1,0 +1,61 @@
+{
+  "teachers": [
+    {
+      "name": "Root User",
+      "username": "root",
+      "password": "root"
+    }
+  ],
+  "groups": [
+    {
+      "name": "Docenten",
+      "teacher": 1,
+      "description": "De Docenten van DT"
+    }
+  ],
+  "students": [
+    {
+      "name": "Bob Mulder",
+      "group": 1
+    },
+    {
+      "name": "Björn Postema",
+      "group": 1
+    },
+    {
+      "name": "René Zeeders",
+      "group": 1
+    },
+    {
+      "name": "David Doorn",
+      "group": 1
+    }
+  ],
+  "modules": [
+    {
+      "name": "IP"
+    }
+  ],
+  "grades": [
+    {
+      "value": 7,
+      "module": 1,
+      "student": 1
+    },
+    {
+      "value": 7.5,
+      "module": 1,
+      "student": 2
+    },
+    {
+      "value": 8,
+      "module": 1,
+      "student": 3
+    },
+    {
+      "value": 6.8,
+      "module": 1,
+      "student": 4
+    }
+  ]
+}

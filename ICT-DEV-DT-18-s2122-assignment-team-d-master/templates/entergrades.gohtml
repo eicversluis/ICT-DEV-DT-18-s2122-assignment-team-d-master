@@ -1,0 +1,25 @@
+{{template "header.gohtml" .}}
+{{template "nav.gohtml" . }}
+<h2>Cijfers invoeren voor {{.Group.Name}}</h2>
+<form method="post" action="/cijfers/{{.Module.ID}}/{{.Group.ID}}">
+    <table>
+        <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Naam</th>
+            <th scope="col">Cijfer</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{ range $s := .Group.Students}}
+            <tr>
+                <td>{{$s.Name}}</td>
+                <td><input type="number" name="grade-{{$s.ID}}" step="0.1" value="{{(index $.Grades $s.ID).Value}}"></td>
+            </tr>
+        {{ end }}
+        </tbody>
+    </table>
+    <button type="submit">Versturen</button>
+</form>
+    <div>
+{{template "footer.gohtml" .}}

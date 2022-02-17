@@ -1,0 +1,15 @@
+{{template "header.gohtml" .}}
+{{template "nav.gohtml" . }}
+<h2>Student toevoegen</h2>
+<form action="/studenten/nieuw" method="post" >
+    <label for="namefield">Naam:</label>
+    <input id="namefield" type="text" name="name" placeholder="Naam">
+    <label for="groupfield">Docent:</label>
+    <select name="group" id="groupfield">
+        {{ range . }}
+            <option value="{{.ID}}">{{.Name}}</option>
+        {{end}}
+    </select>
+    <button type="submit">Toevoegen</button>
+</form>
+{{template "footer.gohtml" .}}

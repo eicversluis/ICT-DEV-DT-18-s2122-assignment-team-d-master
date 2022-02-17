@@ -1,0 +1,21 @@
+{{template "header.gohtml" .}}
+{{template "nav.gohtml" . }}
+<a href="/studenten/nieuw"><button>Nieuwe Student</button></a>
+<table>
+    <thead>
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Naam</th>
+        <th scope="col">Groep</th>
+    </tr>
+    </thead>
+    <tbody>
+        {{ range .}}
+        <tr>
+            <td>{{.ID}}</td>
+            <td><a href="/studenten/{{.ID}}">{{.Name}}</a></td>
+            <td>{{.Group.Name}}</td>
+        </tr>
+        {{ end }}
+    </tbody>
+</table>

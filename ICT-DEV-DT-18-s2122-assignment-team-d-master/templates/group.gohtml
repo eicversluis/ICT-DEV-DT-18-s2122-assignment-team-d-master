@@ -1,0 +1,26 @@
+{{template "header.gohtml" .}}
+{{template "nav.gohtml" . }}
+<h2>Informatie</h2>
+<p>
+    Naam: {{.Name}}
+    Docent: {{.Teacher.Name}}
+    Beschrijving: {{.Description}}
+</p>
+<h2>Studenten</h2>
+<table>
+    <thead>
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Naam</th>
+    </tr>
+    </thead>
+    <tbody>
+        {{ range .Students}}
+        <tr>
+            <td>{{.ID}}</td>
+            <td><a href="/studenten/{{.ID}}">{{.Name}}</a></td>
+        </tr>
+        {{ end }}
+    </tbody>
+</table>
+{{template "footer.gohtml" .}}

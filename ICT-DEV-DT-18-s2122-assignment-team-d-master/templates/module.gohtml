@@ -1,0 +1,43 @@
+{{ template "header.gohtml"}}
+{{ template "nav.gohtml"}}
+<h2>{{.Module.Name}}</h2>
+<select name="group" id="groupfield">
+    {{ range .Groups }}
+        <option value="{{.ID}}">{{.Name}}</option>
+    {{end}}
+</select>
+<button type="submit" id="entergrades">Cijfers invoeren</button>
+<h3>Cijfers</h3>
+{{range $g := .Groups}}
+    <details>
+        <summary>{{$g.Name}}</summary>
+        <table>
+            <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Naam</th>
+                <th scope="col">Cijfer</th>
+            </tr>
+            </thead>
+            <tbody>
+            {{ range $grade := $.Module.Grades}}
+                {{if eq $grade.Student.Group.ID $g.ID}}
+                    <tr>
+                        <td>{{$grade.Student.ID}}</td>
+                        <td><a href="/studenten/{{$grade.Student.ID}}">{{$grade.Student.Name}}</a></td>
+                        <td>{{$grade.Value}}</td>
+                    </tr>
+                {{end}}
+            {{ end }}
+            </tbody>
+        </table>
+    </details>
+{{end}}
+<script>
+    document.querySelector('#entergrades').addEventListener('click', e=> {
+        const groupid = document.querySelector('#groupfield').value
+        console.dir(groupid)
+        window.location.href = '/cijfers/{{.Module.ID}}/'+groupid
+    })
+</script>
+{{ template "footer.gohtml"}}

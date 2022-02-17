@@ -1,0 +1,16 @@
+{{template "header.gohtml" .}}
+{{template "nav.gohtml" . }}
+<h2>Groep toevoegen</h2>
+<form action="/groepen/nieuw" method="post" >
+    <label for="namefield">Naam:</label>
+    <input id="namefield" type="text" name="name" placeholder="Groepsnaam">
+    <label for="descriptionfield">Groepsomschrijving:</label>
+    <input type="text" name="description" id="descriptionfield" placeholder="Groepsomschrijving">
+    <label for="teacherfield">Docent:</label>
+    <select name="teacher" id="teacherfield">
+        {{ range . }}
+        <option value="{{.ID}}">{{.Name}}</option>
+        {{end}}
+    </select>
+    <button type="submit">Toevoegen</button>
+</form>

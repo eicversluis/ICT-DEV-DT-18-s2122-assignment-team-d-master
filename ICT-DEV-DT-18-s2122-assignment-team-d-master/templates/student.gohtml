@@ -1,0 +1,23 @@
+{{template "header.gohtml" .}}
+{{template "nav.gohtml" . }}
+<h3>Cijfers van {{.Student.Name}}</h3>
+<p>Gemiddelde {{.AvgGrade}}</p>
+<table>
+    <thead>
+    <tr>
+        <th scope="col">Vak</th>
+        <th scope="col">Cijfer</th>
+        <th scope="col">Behaald op</th>
+    </tr>
+    </thead>
+    <tbody>
+        {{ range .Student.Grades}}
+        <tr>
+            <td>{{.Module.Name}}</td>
+            <td>{{.Value}}</td>
+            <td>{{.CreatedAt}}</td>
+        </tr>
+        {{ end }}
+    </tbody>
+</table>
+{{template "footer.gohtml" .}}
