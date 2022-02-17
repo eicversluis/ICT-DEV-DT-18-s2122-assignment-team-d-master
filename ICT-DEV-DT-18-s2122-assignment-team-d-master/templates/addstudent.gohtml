@@ -4,7 +4,7 @@
 <form action="/studenten/nieuw" method="post" >
     <label for="namefield">Naam:</label>
     <input id="namefield" type="text" name="name" placeholder="Naam">
-    <label for="groupfield">Docent:</label>
+    <label for="groupfield">Groep:</label>
     <select name="group" id="groupfield">
         {{ range . }}
             <option value="{{.ID}}">{{.Name}}</option>
