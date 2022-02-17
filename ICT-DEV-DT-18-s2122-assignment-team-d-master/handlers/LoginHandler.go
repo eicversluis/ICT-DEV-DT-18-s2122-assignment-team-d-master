@@ -27,7 +27,7 @@ func DoLogin(w http.ResponseWriter, r *http.Request) {
 	user, err := repositories.AuthenticateTeacher(username, password)
 
 	if err == nil {
-		http.SetCookie(w, &http.Cookie{Name: "username", Value: user.Username, Secure: true, Expires: time.Now().Add(time.Minute)})
+		http.SetCookie(w, &http.Cookie{Name: "username", Value: user.Username, Secure: true, Expires: time.Now().Add(time.Duration(time.Now().Day()))})
 		http.Redirect(w, r, "/", http.StatusSeeOther)
 	} else {
 		log.Println(err)
