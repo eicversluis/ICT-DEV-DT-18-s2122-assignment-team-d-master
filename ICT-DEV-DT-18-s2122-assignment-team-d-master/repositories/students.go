@@ -37,7 +37,7 @@ func GetAverageGrade(Id int) int {
 	connection().Preload("Grades").Where("id = ?", Id).First(&Student)
 	AvgGrade := 0
 	for _, grade := range Student.Grades {
-		AvgGrade = int(grade.Value)
+		AvgGrade += int	(grade.Value)
 	}
 	AvgGrade = AvgGrade / len(Student.Grades)
 	return AvgGrade
