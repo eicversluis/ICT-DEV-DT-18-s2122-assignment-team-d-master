@@ -3,6 +3,7 @@ package repositories
 import (
 	. "eindopdracht/types"
 	"gorm.io/gorm/clause"
+	"log"
 )
 
 func GetStudents(Preloads ...string) []Student {
@@ -34,7 +35,10 @@ func CreateStudent(student Student) error {
 
 func GetAverageGrade(Id int) int {
 	var Student Student
-	connection().Preload("Grades").Where("id = ?", Id).First(&Student)
+	err := connection().Preload("Grades").Where("id = ?", Id).First(&Student)
+	if err != nil{
+		log.Println(err)
+	}
 	AvgGrade := 0
 	for _, grade := range Student.Grades {
 		AvgGrade += int	(grade.Value)
