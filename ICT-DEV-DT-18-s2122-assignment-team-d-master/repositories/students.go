@@ -37,6 +37,7 @@ func GetAverageGrade(Id int) int {
 	var Student Student
 	err := connection().Preload("Grades").Where("id = ?", Id).First(&Student)
 	if err != nil{
+		log.Println("Error Retrieving grades: empty")
 		log.Println(err)
 	}
 	AvgGrade := 0
