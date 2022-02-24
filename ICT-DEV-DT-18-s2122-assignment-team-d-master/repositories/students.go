@@ -42,7 +42,7 @@ func GetAverageGrade(Id int) int {
 	}
 	AvgGrade := 0
 	for _, grade := range Student.Grades {
-		AvgGrade += int	(grade.Value)
+		AvgGrade += int(grade.Value)
 	}
 	AvgGrade = AvgGrade / len(Student.Grades)
 	return AvgGrade
